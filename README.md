@@ -65,6 +65,8 @@
 
 ## Install
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tiaanduplessis/compare-obj.svg)](https://greenkeeper.io/)
+
 ```sh
 $ npm install --save compare-obj
 # OR
