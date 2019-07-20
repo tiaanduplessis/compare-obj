@@ -1,6 +1,6 @@
 {
   "name": "compare-obj",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Recursively compare 2 objects on a property bases to get the difference",
   "license": "MIT",
   "source": "index.js",
