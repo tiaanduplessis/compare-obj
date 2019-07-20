@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Recursively compare 2 objects on a property bases to get the difference",
   "license": "MIT",
-  "main": "index.js",
+  "source": "index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/tiaanduplessis/compare-obj.git"
@@ -11,30 +12,28 @@
   "homepage": "https://github.com/tiaanduplessis/compare-obj",
   "bugs": "https://github.com/tiaanduplessis/compare-obj/issues",
   "author": {
-    "name": "Tiaan",
+    "name": "Tiaan du Plessis",
     "email": "tiaanduplessis@hotmail.com",
-    "url": "tiaan.beer"
+    "url": "tiaan.dev"
   },
   "scripts": {
-    "start": "npm run dev",
-    "pretest": "npm run lint:fix",
-    "test": "jest --env=node",
+    "build": "microbundle --format cjs",
+    "dev": "microbundle watch",
+    "test": "jest",
     "test:watch": "npm test -- --watch",
     "coverage": "npm test -- --coverage",
-    "lint": "standard --verbose",
-    "lint:fix": "standard --fix --verbose",
-    "precommit": "npm test"
+    "lint": "standard --fix"
   },
   "keywords": [
     "object",
     "compare",
     "diff",
+    "object-diff",
     "compare-obj"
   ],
-  "dependencies": {},
   "devDependencies": {
-    "husky": "^2.2.0",
-    "jest": "^22.0.0",
-    "standard": "^11.0.0"
+    "jest": "^24.8.0",
+    "microbundle": "^0.11.0",
+    "standard": "^13.0.2"
   }
 }

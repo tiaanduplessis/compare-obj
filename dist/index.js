@@ -1,0 +1,2 @@
+var r=function(r){return r&&"object"==typeof r},n=function(r,n){return void 0===r&&(r=[]),void 0===n&&(n=[]),r.filter(function(r){return!n.includes(r)}).concat(n.filter(function(n){return!r.includes(n)}))};module.exports=function(t,e){if(void 0===t&&(t={}),void 0===e&&(e={}),!r(t)||!r(e))throw new Error("Argument is not object");return function t(e,o){var i={};for(var u in e){if(r(e[u])&&o[u]){var c=t(e[u],o[u]);Object.getOwnPropertyNames(c).length&&(i[u]=c)}Array.isArray(e[u])&&(i[u]=n(e[u],o[u])),o[u]||(i[u]=e[u])}return i}(t,e)};
+//# sourceMappingURL=index.js.map

@@ -1,11 +1,11 @@
-'use strict'
+const isObj = val => val && typeof val === 'object'
+const isArr = arr => Array.isArray(arr)
 
-/**
- * Check if argument is object
- * @param {Object} object to check if object
- */
-function isObj (object) {
-  return object && typeof object === 'object'
+const arrMerge = (a = [], b = []) => {
+  return [
+    ...a.filter(x => !b.includes(x)),
+    ...b.filter(x => !a.includes(x))
+  ]
 }
 
 /**
@@ -14,8 +14,9 @@ function isObj (object) {
  * @param {*} other
  */
 function compare (base, other) {
-  let diff = {}
-  for (let prop in base) {
+  const diff = {}
+  for (const prop in base) {
+    // Both objects have the prop and both are objects
     if (isObj(base[prop]) && other[prop]) {
       const result = compare(base[prop], other[prop])
       if (Object.getOwnPropertyNames(result).length) {
@@ -23,6 +24,12 @@ function compare (base, other) {
       }
     }
 
+    // Prop is array
+    if (isArr(base[prop])) {
+      diff[prop] = arrMerge(base[prop], other[prop])
+    }
+
+    // Prop in base
     if (!other[prop]) {
       diff[prop] = base[prop]
     }

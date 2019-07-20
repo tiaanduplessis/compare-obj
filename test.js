@@ -1,11 +1,11 @@
 /* eslint-env jest */
 'use strict'
 
-const compareObj = require('./')
+const compare = require('./')
 
 test('should be defined', () => {
-  expect(compareObj).toBeDefined()
-  expect(typeof compareObj).toBe('function')
+  expect(compare).toBeDefined()
+  expect(typeof compare).toBe('function')
 })
 
 test('should compare two objects', () => {
@@ -25,8 +25,21 @@ test('should compare two objects', () => {
       goo: 6
     }
   }
-  const result = compareObj(obj1, obj2)
+  const result = compare(obj1, obj2)
 
   expect(typeof result).toBe('object')
   expect(result).toMatchObject({ bar: 9, baz: { foo: { hello: 'world' } } })
+})
+
+test('should compare two objects', () => {
+  const obj1 = {
+    foo: ['bar', 'baz']
+  }
+  const obj2 = {
+    foo: ['bar']
+  }
+  const result = compare(obj1, obj2)
+
+  expect(typeof result).toBe('object')
+  expect(result).toMatchObject({ foo: ['baz'] })
 })
