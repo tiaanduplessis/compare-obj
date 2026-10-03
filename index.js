@@ -29,9 +29,13 @@ function compare (base, other) {
       diff[prop] = arrMerge(base[prop], other[prop])
     }
 
-    // Prop in base
-    if (!other[prop]) {
-      diff[prop] = base[prop]
+    // Keep missing and differing falsy values, but omit equal present values.
+    const otherValue = other[prop]
+    if (!otherValue) {
+      const baseValue = base[prop]
+      if (baseValue !== otherValue || !(prop in Object(other))) {
+        diff[prop] = baseValue
+      }
     }
   }
 
